@@ -84,7 +84,7 @@ def spell_menu ():
     player.Mana -= skills[skill_casted].cost
     if player.Mana < 0:
         player.HP += player.Mana * 2
-        print("You take damage from exaustion, try to regain mana \n")
+        print("You take damage from exaustion, try to regain mana. \n")
         player.Mana = 0
 
 def enemy_turn (lvl, blocking):
