@@ -57,6 +57,7 @@ Ve formátovaném výstupním řetězci můžeme používat také pojmenované a
 # Příklad formátovaného výstupu s využitím pojmenovaných argumentů
 print('Jsem {prijmeni}, {jmeno} {prijmeni}.'.format(jmeno = 'James', prijmeni = 'Bond'))
 
+#Pan učitel má asi moc rád Bondovky :-), Reference jsou skoro v každém třetím úkolu :-)
 '''
 Rovněž je možné při formátování řetězců aplikovat tradiční sprintf() styl převzatý z jazyka C - tedy s využitím
 operátoru "%".
