@@ -52,7 +52,8 @@ které oddělíme dvojtečkou:
 '''
 
 # Vypíše 4. znak z řetězce
-# print(course_name[3])
+course_name = "Cvičení Programování"
+print(course_name[-2])
 
 '''
 Důležité je si zapamatovat, že slice indexy ukazují mezi znaky, přičemž levá hrana prvního znaku má číslo 0 
@@ -68,9 +69,9 @@ Na prvním řádku jsou uvedeny všechny možné slice-indexy 0...5 v řetězci 
 '''
 
 # Vypíše poslední znak z řetězce
-# print(course_name[-1])
+print(course_name[-1])
 # Vypíše vše od 2. do 4. znaku (bez něj)
-# print(course_name[1:3])
+print(course_name[1:3])
 
 '''
 Slice indexy mají specifické vlastnosti. Vynecháme-li první index, je za něj automaticky dosazena nula (začátek řetězce). 
@@ -78,11 +79,11 @@ Při neuvedení druhého indexu se použije délka řetězce (čili konec řetě
 '''
 
 # Vypíše vše od 2. znaku
-# print(course_name[1:])
+print(course_name[1:])
 # Vypíše vše od 2. znaku do předposledního
-# print(course_name[1:-1])
+print(course_name[1:-1])
 # Vypíše 3 znaky od začátku
-# print(course_name[:3])
+print(course_name[:3])
 
 '''
 Další vlastností slice indexů je jejich automatické "zarovnávání" na rozměr řetězce. 
@@ -95,10 +96,10 @@ Je-li totiž index použitý ve slice konstrukci příliš velký, je nahrazen d
 first_name = "Donald  "
 second_name = "  Trump"
 # Spojování řetězců
-# print(first_name + second_name)
+print(first_name + second_name)
 
 # Opakování řetězců
-# print(first_name + second_name * 3)
+print(first_name + second_name * 3)
 
 '''
 Řetězce v jazyce Python nelze měnit. Pokusíme-li se změnit určitou pozici v řetězci, dojde k chybě.
@@ -107,19 +108,19 @@ second_name = "  Trump"
 '''
 Proto jedinou cestou, jak vytvářet nové řetězce, je jejich kombinování, které je velice jednoduché a přitom efektivní:
 '''
-# print('R' + first_name[1:])
+print('R' + first_name[1:])
 
 # Formátovaný výstup, použití řetězcových funkcí
-# print(f"{first_name.upper().rstrip()} {second_name.lower().lstrip()} {5 * 4} {len(message)}")
+print(f"{first_name.upper().rstrip()} {second_name.lower().lstrip()} {5 * 4} {len(message)}")
 
 # Nalezení pozice podřetězce v řetězci
-# print(first_name.find("na"))
+#    print(first_name.find("na"))
 
 # Nahrazení podřetězce v řetězci
 # print(first_name.upper().replace("D", "*"))
 
 # Zjištění výskytu podřetězce
-# print("na" not in first_name)
+print("na" not in first_name.upper())
 
 '''
 Python umí pracovat s Unicode řetězci úplně stejným způsobem jako s obyčejnými řetězci. 
@@ -150,11 +151,66 @@ Použijte kombinaci různý možností pro práci s řetězci (včetně různýc
 funkční kód, tím lepší).
 
 1. Převeďte "česky" zadané datum - např. 12. 10. 2020 - do podoby "databázové" podoby - např. 2020-10-12
+'''
+date = input("Zadej datum :")
+transformed_date = date[0:2] + "-" + date[4:6] + "-" + date[8:13]
+
+'''print(transformed_date)
+day = int(date[0:2])
+month = int(date[4:6])
+year = int(date[8:13])
+print(day, month, year)'''
+
+'''
 2. Vytvořte funkci, která vyrobí ze zadaného sousloví:
    a) identifikátor pro proměnné používané v Pythonu - např. To je proměnná v Pythonu = to_je_promenna_v_pythonu
    b) identifikátor pro camel syntax v JS - např. To je proměnná v Pythonu = toJePromennaVPythonu 
    Obě možnosti by měly být vyřešeny v jedné funkci s využitím parametrů.
    Kdo si chce úkol trochu zjednodušit, nemusí řešit znaky s českou diakritikou. 
+   '''
+def promenna(vstup, mod):
+    if mod == "S":
+        print("snake case it is\n")
+        vstup = vstup.lower().replace(" ", "_")
+        print(vstup)
+    elif mod == "C":
+        vstup = vstup.lower()
+        while(vstup.find(" ") != -1):
+            index = vstup.find(" ")
+            vstup = vstup[0:index] + vstup[index+1].upper() + vstup[index+2:]
+        print("camel case it is\n")
+        print(vstup)
+
+
+#promenna("To je proměnná v Pythonu", "C")
+
+
+promenna(input("Zadej retezec:"), input("Zadej C/S pro mod:"))
+'''
 3. Vytvořte funkci, která vygeneruje náhodná hesla pro počet osob zadaný v parametru tak, aby heslo začínalo
    3 velkými písmeny, pokračovalo 3 malými písmeny, jedním speciálním znakem (-/+*) a končilo 3 náhodnými číslicemi.
 '''
+import random
+import string
+
+
+def generuj_hesla(pocet):
+    hesla = []
+    specialni_znaky = "-+*"
+
+    for _ in range(pocet):
+        velka = ''.join(random.choices(string.ascii_uppercase, k=3))
+        mala = ''.join(random.choices(string.ascii_lowercase, k=3))
+        special = random.choice(specialni_znaky)
+        cisla = ''.join(random.choices(string.digits, k=3))
+
+        heslo = velka + mala + special + cisla
+        hesla.append(heslo)
+
+    return hesla
+
+
+
+vysledek = generuj_hesla(5)
+for h in vysledek:
+    print(h)
