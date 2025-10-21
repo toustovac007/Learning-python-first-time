@@ -285,8 +285,8 @@ print(f'\tSbalení seznamů do proměnné values: {values}\n')
 from random import randint
 
 print(f'\n*************************************\nCvičení 2\n*************************************')
-
-
+hundreds = [x for x in range(1, 2001) if x % 200 ==0]
+print(hundreds)
 
 # ??? 3. cvičení ???
 # a) Přidejte do listu persons ještě n-tice (tuples) dalších 2 žen a 2 mužů.
