@@ -1,6 +1,13 @@
 import tkinter as tk
 from xml.etree.ElementTree import canonicalize
 import random
+from tkinter import simpledialog, colorchooser
+
+
+try:
+    from happiness.data_loader import load_data
+except:
+    pass
 
 class App:
     def __init__(self):
