@@ -282,11 +282,37 @@ print(f'\tSbalení seznamů do proměnné values: {values}\n')
 # aby vznikl seznam n-tic (list of tuples) v podobě (cislo, znak).
 # Snažte se vždy o co nejzhuštěnější kód - ideálně na 1 řádku (+ další řádek s kontrolním výpisem proměnné)
 # import knihovny pro generování náhodných čísel
-from random import randint
+
+
+# from random import randint
+
+import random
+import string
 
 print(f'\n*************************************\nCvičení 2\n*************************************')
 hundreds = [x for x in range(1, 2001) if x % 200 ==0]
 print(hundreds)
+ascii = [random.choice(string.ascii_uppercase) for _ in range(50)]
+print(ascii)
+#del hundreds[0:3]
+#print(hundreds)
+#del hundreds[len(hundreds)-3:len(hundreds)]
+hundreds = hundreds[3:-3]
+print(hundreds)
+
+unique = [char for char in ascii if ascii.count(char) == 1]
+print(unique)
+
+#del ascii[len(hundreds):]
+#print(ascii)
+
+combine = [(hundreds[i], ascii[i]) for i in range(len(hundreds))]
+combine2 = [list(zip(hundreds, ascii[:len(hundreds)]))]
+combine3 = [list(zip(hundreds, ascii))]
+
+print(combine)
+print(combine2)
+print(combine3)
 
 # ??? 3. cvičení ???
 # a) Přidejte do listu persons ještě n-tice (tuples) dalších 2 žen a 2 mužů.
