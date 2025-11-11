@@ -80,12 +80,16 @@ hexadecimal = 0x12c #Hexadecimal Literal
 #? Pro toto binární číslo proveďte nejprve bitový posun o 2 bity vpravo, poté vypište výsledek v desítkové soustavě
 #? Proveďte bitový součin hexadecimálního čísla "1A" a vašeho binárního čísla a opět vypište v desítkové soustavě
 #? Výsledek zobrazte jako formátovaný řetězec - např. "Binární součin čísla 0b11010 a 0b10110101 je 0b10000"
+
+'''
 x << y
 x >> y
 x & y
 x | y
 ~ x
 x ^ y
+'''
+
 
 myself_binary = 0b10101101
 print(myself_binary)
