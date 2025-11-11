@@ -144,6 +144,7 @@ nebo zápis z.real reprezentují reálnou část čísla:
 # print(abs(z))
 # Je totéž jako sqrt(z.real**2 + z.imag**2)
 
+
 '''
 Funguje pouze  v interaktivní konzoli!
 Speciální proměnná _ reprezentuje předešlý výsledek.

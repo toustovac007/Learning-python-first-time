@@ -26,6 +26,7 @@ připravených funkcí.
 
 
 
+
 def vaha_na_planete(hmotnost: float, gravitace: float = EARTH_GRAVITY) -> float:
     """
     Vrátí tíhu tělesa (v newtonech) pro danou hmotnost a gravitační zrychlení.
